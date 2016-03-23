@@ -42,6 +42,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Media
 	## Captions
 	## Galleries
+# Slider
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -553,24 +554,21 @@ a {
 	text-decoration: none;
 	}
 
-/* unvisited link */
-a:link {
-    color: #300032;
+/* unvisited and visited link */
+a:link
+a:visited {
+    color: #E6E6E8;
 }
 
-/* visited link */
-a:visited {
-    color: #300032;
-}
 
 /* mouse over link */
 a:hover {
-    color: #E6E6E8;
+    color: #F2F5A9;
 }
 
 /* selected link */
 a:active {
-    color: #C43235;
+    color: #F2F5A9;
 }
 
 /*--------------------------------------------------------------
@@ -594,6 +592,11 @@ a:active {
 	float: left;
 	position: relative;
 	padding: 0 20px; 0 0
+	
+}
+
+.main-navigation ul li a:hover {
+	color: #C43235;
 	
 }
 
@@ -750,21 +753,24 @@ a:active {
 
 .site-content{
 	text-align: center;
+	background-color: #000;
+	padding-top: 20px;
 }
 
 .site-header{
-	background-color: grey;
+	background-color: #fff;
 	padding-bottom: 15px;
 }
 
 .site-description{
-	background-color: #fff;
+	background-color: #000;
 	padding-bottom: 5px;
 }
 
 .site-branding{
-	background-color: #fff;
+	background-color: #000;
 }
+
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
@@ -965,7 +971,9 @@ object {
 	display: block;
 }
 
-
+/*--------------------------------------------------------------
+# Slider
+--------------------------------------------------------------*/
 
 
 @import url(http://fonts.googleapis.com/css?family=Varela+Round);
@@ -1013,8 +1021,8 @@ html, body { background: #333 url("http://codepen.io/images/classy_fabric.png");
 }
 
 .nav label {
-    width: 200px;
-    height: 100%;
+    width: 100px;
+    height: auto;
     display: none;
     position: absolute;
 
@@ -1025,11 +1033,12 @@ html, body { background: #333 url("http://codepen.io/images/classy_fabric.png");
     transition: opacity .2s;
 
     color: #FFF;
-    font-size: 156pt;
+    font-size: 100pt;
+    font-weight: 100pt;
     text-align: center;
     line-height: 380px;
-    font-family: "Varela Round", sans-serif;
-    background-color: rgba(255, 255, 255, .3);
+    font-family: "Times New Roman", sans-serif;
+    background-color: none;
     text-shadow: 0px 0px 15px rgb(119, 119, 119);
 }
 
