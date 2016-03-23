@@ -12,7 +12,7 @@ function smokycabin_submenu() { /* This creates a new submenu in wordpress dashb
 	add_action( 'admin_menu', 'smokycabin_submenu' );
 
 function smokycabin_admin_menu(){ /* Add a new submenu in the wordpress dashboard and give it a name of "My Options Page */
-	add_menu_page( 'My Options Page', 'My Options Page', 'manage_options', 'my_options_page', 'my_theme_options_page', 'dashicons-hammer', 66 );
+	add_menu_page( 'My Options Page', 'My Options Page', 'manage_options', 'smoky_cabin_options_page', 'smoky_cabin_options_page', 'dashicons-hammer', 66 );
 	}
 	add_action( 'admin_menu', 'smokycabin_admin_menu' );
 	
