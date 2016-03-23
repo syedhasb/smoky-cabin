@@ -51,7 +51,7 @@ function smokycabin_setting(){ /* Registers the submenu in the wordpress dashboa
 		<?php
 		}
 }
-function my_theme_options_page(){ /* Create the form in the Options Page so the user can input their own customizations to the page */
+function smoky_cabin_options_page(){ /* Create the form in the Options Page so the user can input their own customizations to the page */
 ?>
 	<form action="options.php"method="post"><h2>Options Page</h2>
 	<?php
