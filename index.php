@@ -14,6 +14,7 @@
 
 get_header(); ?>
 
+/*This piece of code is a css image slider taken from web developer- Avi Kohn*/
 <ul class="slides">
     <input type="radio" name="radio-btn" id="img-1" checked />
     <li class="slide-container">
