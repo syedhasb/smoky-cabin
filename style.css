@@ -55,7 +55,7 @@ html {
 
 body {
 	margin: 0;
-	max-width: 100%;
+	max-width: 100%
 }
 
 article,
@@ -91,6 +91,10 @@ template {
 	display: none;
 }
 
+a {
+	background-color: transparent;
+}
+
 a:active,
 a:hover {
 	outline: 0;
@@ -113,9 +117,8 @@ h1 {
 	font-size: 1.5em;
 	margin: 0.67em 0;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	color: #300032;
-	text-align: center;
-	word-spacing: 15px;
+	
+	
 }
 
 mark {
@@ -259,6 +262,21 @@ th {
 	padding: 0;
 }
 
+.site-title{
+	text-decoration: none;
+	font-family: 'Impact', Charcoal, Sans-serif;
+	font-size: 50px;
+	text-transform: uppercase;
+	text-align: center;
+	
+}
+
+.site-description{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	text-align: center;
+	
+}
+
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
@@ -285,6 +303,7 @@ h6 {
 
 p {
 	margin-bottom: 1.5em;
+	
 }
 
 dfn,
@@ -522,35 +541,36 @@ textarea {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+#site-navigation.main-navigation {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
+
 a {
-	background-color: transparent;
-	color: #000;
+	color: #E6E6E8;
 	text-decoration: none;
-	font-family: 'Impact', Charcoal, Sans-serif;
-	font-size: 50px;
-	text-transform: uppercase;
 	}
 
+/* unvisited link */
+a:link {
+    color: #300032;
+}
+
+/* visited link */
 a:visited {
-	color: purple;
+    color: #300032;
 }
 
-a:hover,
-a:focus,
+/* mouse over link */
+a:hover {
+    color: #E6E6E8;
+}
+
+/* selected link */
 a:active {
-	color: midnightblue;
-}
-
-a:focus {
-	outline: thin dotted;
-}
-
-a:hover,
-a:active {
-	outline: 0;
+    color: #C43235;
 }
 
 /*--------------------------------------------------------------
@@ -559,7 +579,6 @@ a:active {
 .main-navigation {
 	clear: both;
 	display: block;
-	float: left;
 	width: 100%;
 }
 
@@ -568,11 +587,14 @@ a:active {
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
+	float: right;
 }
 
 .main-navigation li {
 	float: left;
 	position: relative;
+	padding: 0 20px; 0 0
+	
 }
 
 .main-navigation a {
@@ -726,6 +748,23 @@ a:active {
 	margin-right: auto;
 }
 
+.site-content{
+	text-align: center;
+}
+
+.site-header{
+	background-color: grey;
+	padding-bottom: 15px;
+}
+
+.site-description{
+	background-color: #fff;
+	padding-bottom: 5px;
+}
+
+.site-branding{
+	background-color: #fff;
+}
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
@@ -924,9 +963,10 @@ object {
 
 .gallery-caption {
 	display: block;
-	
-	
 }
+
+
+
 
 @import url(http://fonts.googleapis.com/css?family=Varela+Round);
 
