@@ -1,7 +1,7 @@
 <?php
 /* * Plugin Name: Options Page 
 * Plugin URI: https://phoenix.sheridanc.on.ca/~ccit3429/
-* Description: Showing various customizations that are avaliable to the user. 
+* Description: Allows user to edit or add additional content that will appear on the main website
 * Author:Smoky Cabin
 * Version: 1.0 
 * Author URI: https://phoenix.sheridanc.on.ca/~ccit3429/ 
