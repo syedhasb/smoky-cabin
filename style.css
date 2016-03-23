@@ -91,10 +91,6 @@ template {
 	display: none;
 }
 
-a {
-	background-color: transparent;
-}
-
 a:active,
 a:hover {
 	outline: 0;
@@ -530,6 +526,7 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
+	background-color: transparent;
 	color: #000;
 	text-decoration: none;
 	font-family: 'Impact', Charcoal, Sans-serif;
