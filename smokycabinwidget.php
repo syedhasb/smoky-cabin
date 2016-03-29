@@ -32,7 +32,6 @@ function register_my_post() {
 				'parent_item_colon' => '',
 				),
 					'public' => true,
-					'exclude_from_search' => true,
 					'supports' => array(
 					'title',
 					'thumbnail',
