@@ -1,50 +1,45 @@
 <?php
 	
 /*
-* Plugin Name: Smoky Cabin Widget
-* Description: Displays posts.
+* Plugin Name: Smokycabin Post Widget 
+* Description: It displays a widget
 * Plugin URI: http://phoenix.sheridanc.on.ca/~ccit3429
-* Author: Cheng Yap 
+* Author: Yap Cheng Siew, Syed Hasban, Alistair D'Cruz
 * Author URI: http://phoenix.sheridanc.on.ca/~ccit3429
 * Version: v1.0
 */
+
 /*
 *registers posts for the website.
 */
 
-
-	
-// Creating the widget front end
-class smokycabin_widget extends WP_Widget {
-	function __construct() {
-		parent::__construct('smokycabin_widget', __('smokycabin Widget', 'smokycabin_widget_domain'), array( 'description' => __( 'smokycabin widget', 'smokycabin_widget_domain' ), )
-		);
-	}
-?>
-
-<?php 
-	register_post_type( $post_type, $args ); 
-	
 // Tells WordPress that this widget has been created and that it should display in the list of available widgets. This was taken form Codex
-
-function smokycabin_custom_init() {
-    $args = array(
-    'name'               => ('Shisha'), 
-	'add_new'            => 'Add New',
-	'add_new_item'       => 'Add New Item',
-	'new_item'           => 'New Item',
-	'edit_item'          => 'Edit Item', 
-	'view_item'          => 'View Item', 
-	'all_items'          => 'All Items', 
-	'search_items'       => 'Search Items',
-	'parent_item_colon'  => 'Parent Items:', 
-	'not_found'          => 'No items found.',
-	'not_found_in_trash' => 'No items found in Trash.', 
-    );
-    register_post_type( 'book', $args );
-}
-add_action( 'init', 'smokycabin_custom_init' );	
-	
+add_action('init','register_my_post');
+function register_my_post() {
+	register_post_type('shisha',
+		array(
+			'labels' => array(
+				'name' => ('shisha'),
+				'add_new' => 'Add New post',
+				'add_new_item' => 'Post',
+				'edit_item' => 'Edit',
+				'new_item' => 'New',
+				'all_items' => 'All',
+				'view_items' => 'View',
+				'search_items' => 'Search',
+				'not_found' => 'Not found',
+				'not_found_in_trash' => 'None',
+				'parent_item_colon' => '',
+				),
+					'public' => true,
+					'exclude_from_search' => true,
+					'supports' => array(
+					'title',
+					'thumbnail',
+					'editor'
+				)
+			)
+		);
 
 	// Creating widget front-end
 	public function widget( $args, $instance ) {
