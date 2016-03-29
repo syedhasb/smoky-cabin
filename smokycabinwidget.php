@@ -8,81 +8,88 @@
 * Author URI: http://phoenix.sheridanc.on.ca/~ccit3429
 * Version: v1.0
 */
-
 /*
 *registers posts for the website.
 */
 
-// Tells WordPress that this widget has been created and
-//that it should display in the list of available widgets.
 
-add_action( 'widgets_init', 'register_SCpost' ); 
-function register_SCpost(){
-	register_post_type ('Shisha', 
-		array (
-		'labels' = array(
-		'name'               => ('Shisha'), 
-		'add_new'            => 'Add New',
-		'add_new_item'       => 'Add New Item',
-		'new_item'           => 'New Item',
-		'edit_item'          => 'Edit Item', 
-		'view_item'          => 'View Item', 
-		'all_items'          => 'All Items', 
-		'search_items'       => 'Search Items',
-		'parent_item_colon'  => 'Parent Items:', 
-		'not_found'          => 'No items found.',
-		'not_found_in_trash' => 'No items found in Trash.', 
-	));
 	
 // Creating the widget front end
 class smokycabin_widget extends WP_Widget {
-
 	function __construct() {
 		parent::__construct('smokycabin_widget', __('smokycabin Widget', 'smokycabin_widget_domain'), array( 'description' => __( 'smokycabin widget', 'smokycabin_widget_domain' ), )
 		);
 	}
+?>
+
+<?php 
+	register_post_type( $post_type, $args ); 
 	
+// Tells WordPress that this widget has been created and that it should display in the list of available widgets. This was taken form Codex
+
+function smokycabin_custom_init() {
+    $args = array(
+    'name'               => ('Shisha'), 
+	'add_new'            => 'Add New',
+	'add_new_item'       => 'Add New Item',
+	'new_item'           => 'New Item',
+	'edit_item'          => 'Edit Item', 
+	'view_item'          => 'View Item', 
+	'all_items'          => 'All Items', 
+	'search_items'       => 'Search Items',
+	'parent_item_colon'  => 'Parent Items:', 
+	'not_found'          => 'No items found.',
+	'not_found_in_trash' => 'No items found in Trash.', 
+    );
+    register_post_type( 'book', $args );
+}
+add_action( 'init', 'smokycabin_custom_init' );	
 	
-//creating the front end form
+
+	// Creating widget front-end
 	public function widget( $args, $instance ) {
+	
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		
+		// before and after widget arguments are defined by themes
 		echo $args['before_widget'];
-		if ( $title ) {
+		if ( ! empty( $title ) )
 			echo $args['before_title'] . $title . $args['after_title'];
-		} ?>
-	<ul>
-		<?php
-		wp_get_archives( apply_filters( 'widget_archives_args',
-				array(
-					'type' => 'yearly',
-					'show_post_count' => $c
-		) ) );
-		?>
-	</ul>
-<?php
 		
-		echo $args['after_widget'];
-}
+		// Display Post
+		echo "smokeycabin ";
+			$args = array('post_type'=>'post');
+			$query = new WP_Query($args);
+			if ($query ->have_posts() ) {
+				echo '<ul class="smokeycabin_widget">';
+				while($query->have_posts()) {
+					// Will concatenate the variables and output the 'eventItem' string.
+					$query->the_post();
+					$smokeycabin = '<li>' . $image;
+					$smokeycabin .= '<a href="' . get_permalink() . '">';
+					$smokeycabin .= get_the_title() . '</a>';
+					$smokeycabin .= '<span>' . get_the_excerpt() . '';
+					$smokeycabin .= '</span></li>';
+					echo $smokeycabin;
+				}
+			echo '</ul>';
+			wp_reset_postdata();
+		}
+			}
+?>
+<!-- This creates the widget admin form -->
+<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'smokycabin'); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($title); ?>" />
+		</p>
+<?php
+	}
+// this displays the titles for the posts
+// this is the backend form
 
-// This is to dislay the posts for the front end
-echo "smokycabin";
-	$arg array ( 'post_type' => 'post')
 	
-// This is to create a backend form
-public function form( $instance ) {
-	$instance = wp_parse_args( (array) $instance,
-array( 'title' => '', 'count' => 0, 'dropdown' => '') );
-	$title = strip_tags($instance['title']);
-	$count = $instance['count'] ? 'checked="checked"' : '';
-	$dropdown = $instance['dropdown'] ?
-'checked="checked"' : '';
-
-//admin form for styling on the backend
-
 //register the wordpress widget
 function SC_widget(){
 	register_widget('smokycabin_widget' );
 	add_action( 'widgets_init', 'smokycabin_widget' );
 ?>
-	
