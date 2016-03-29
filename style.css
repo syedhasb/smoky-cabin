@@ -590,8 +590,8 @@ a:active {
 	top: -27px;
 }
 
-.main-navigation ul.children {
-	background-color: #000;
+.menu-item-type-post_type ul.sub-menu{
+	background-color: #3f2860;
 	padding: 5px;
 	}
 
