@@ -41,36 +41,24 @@ function register_my_post() {
 			)
 		);
 
-	// Creating widget front-end
+//this section is from the example given in class. this activates the widget domain
+class smokycabin_widget extends WP_Widget {
+
+	function __construct() {
+		parent::__construct('smokycabin_widget', __('smokycabin Widget', 'smokycabin_widget_domain'), array( 'description' => __( 'smokycabin widget', 'smokycabin_widget_domain' ), )
+		);
+	}
+
+// This creates the widget front end
 	public function widget( $args, $instance ) {
 	
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		
-		// before and after widget arguments are defined by themes
+// the echos the argument of the widget and displays the queries of the image titles and descriptions
 		echo $args['before_widget'];
 		if ( ! empty( $title ) )
 			echo $args['before_title'] . $title . $args['after_title'];
 		
-		// Display Post
-		echo "smokeycabin ";
-			$args = array('post_type'=>'post');
-			$query = new WP_Query($args);
-			if ($query ->have_posts() ) {
-				echo '<ul class="smokeycabin_widget">';
-				while($query->have_posts()) {
-					// Will concatenate the variables and output the 'eventItem' string.
-					$query->the_post();
-					$smokeycabin = '<li>' . $image;
-					$smokeycabin .= '<a href="' . get_permalink() . '">';
-					$smokeycabin .= get_the_title() . '</a>';
-					$smokeycabin .= '<span>' . get_the_excerpt() . '';
-					$smokeycabin .= '</span></li>';
-					echo $smokeycabin;
-				}
-			echo '</ul>';
-			wp_reset_postdata();
-		}
-			}
 ?>
 <!-- This creates the widget admin form -->
 <p>
